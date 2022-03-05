@@ -2,8 +2,8 @@ package com.lara.diceroller
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import com.lara.diceroller.databinding.ActivityMainBinding
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,12 +18,13 @@ class MainActivity : AppCompatActivity() {
         binding.rollBtn.text = "Let's Roll"
 
         binding.rollBtn.setOnClickListener {
-            Toast
-                .makeText(this,"Roll clicked", Toast.LENGTH_LONG)
-                .show()
+            rollDice()
         }
     }
 
-
+    private fun rollDice() {
+        val randomInt = Random().nextInt(6) + 1
+        binding.resultText.text = "$randomInt"
+    }
 
 }
